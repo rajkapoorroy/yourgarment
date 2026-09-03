@@ -185,6 +185,56 @@ td{padding:12px;border-bottom:1px solid #e5e7eb}
 </div>
 
 
+<!-- RESET PASSWORD MODAL -->
+<div class="modal" id="resetPasswordModal">
+
+    <div class="modal-box">
+
+        <h2>🔐 Set New Password</h2>
+
+        <p style="color:#64748b;margin-bottom:20px;">
+            Enter your new password below.
+        </p>
+
+        <label>New Password</label>
+
+        <input
+            id="newPassword"
+            type="password"
+            placeholder="Enter new password"
+        >
+
+        <label>Confirm New Password</label>
+
+        <input
+            id="confirmNewPassword"
+            type="password"
+            placeholder="Confirm new password"
+        >
+
+        <div class="form-actions">
+
+            <button
+                class="green-btn"
+                onclick="updateNewPassword()"
+            >
+                🔐 Update Password
+            </button>
+
+        </div>
+
+        <div
+            id="resetPasswordMessage"
+            style="
+                margin-top:15px;
+                text-align:center;
+            "
+        ></div>
+
+    </div>
+
+</div>
+
 <!-- DASHBOARD -->
 <div id="dashboard">
 <!-- SUPER ADMIN PANEL -->
@@ -1267,6 +1317,21 @@ SUPABASE_KEY
 );
 
 
+supabaseClient.auth.onAuthStateChange((event, session) => {
+
+    if(event === "PASSWORD_RECOVERY"){
+
+        const modal =
+            document.getElementById("resetPasswordModal");
+
+        if(modal){
+            modal.style.display = "block";
+        }
+
+    }
+
+});
+
 /* ==============================
 GLOBAL
 ============================== */
@@ -1422,6 +1487,86 @@ async function sendPasswordReset(){
             "Forgot Password Error:",
             error
         );
+
+        message.innerHTML =
+            `<span style="color:#dc2626;">
+                Something went wrong.
+            </span>`;
+
+    }
+
+}
+
+async function updateNewPassword(){
+
+    const newPassword =
+        document.getElementById("newPassword").value;
+
+    const confirmPassword =
+        document.getElementById("confirmNewPassword").value;
+
+    const message =
+        document.getElementById("resetPasswordMessage");
+
+    if(!newPassword || !confirmPassword){
+
+        message.innerHTML =
+            `<span style="color:#dc2626;">
+                Please enter both passwords.
+            </span>`;
+
+        return;
+    }
+
+    if(newPassword.length < 6){
+
+        message.innerHTML =
+            `<span style="color:#dc2626;">
+                Password must be at least 6 characters.
+            </span>`;
+
+        return;
+    }
+
+    if(newPassword !== confirmPassword){
+
+        message.innerHTML =
+            `<span style="color:#dc2626;">
+                Passwords do not match.
+            </span>`;
+
+        return;
+    }
+
+    message.innerHTML =
+        `<span style="color:#2563eb;">
+            Updating password...
+        </span>`;
+
+    try{
+
+        const { error } =
+            await supabaseClient.auth.updateUser({
+                password: newPassword
+            });
+
+        if(error){
+
+            message.innerHTML =
+                `<span style="color:#dc2626;">
+                    ${error.message}
+                </span>`;
+
+            return;
+        }
+
+        message.innerHTML =
+            `<span style="color:#16a34a;font-weight:600;">
+                ✅ Password updated successfully.
+            </span>`;
+
+    }
+    catch(error){
 
         message.innerHTML =
             `<span style="color:#dc2626;">
