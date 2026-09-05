@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Retail Management System | YourGarment</title>
+
+    <style>
+
+nav a {
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #2563eb !important;
+    background: #eff6ff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transform: translateY(-2px);
+}
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+        }
+
+        header {
+            background: white;
+            padding: 18px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .back {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 600;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+        }
+
+        .hero-icon {
+            font-size: 65px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #64748b;
+        }
+
+        .options {
+            max-width: 1100px;
+            margin: 20px auto 80px;
+            padding: 0 20px;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            padding: 35px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            border-color: #2563eb;
+        }
+
+        .card-icon {
+            font-size: 42px;
+            margin-bottom: 18px;
+        }
+
+        .card h2 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #64748b;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #0f172a;
+            color: white;
+        }
+
+        @media (max-width: 800px) {
+            .options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        YourGarment
+    </div>
+
+    <nav style="
+        display:flex;
+        align-items:center;
+        gap:28px;
+    ">
+
+        <a href="#features" style="
+            text-decoration:none;
+            color:#475569;
+            font-weight:600;
+        ">
+            Features
+        </a>
+
+        <a href="#pricing" style="
+            text-decoration:none;
+            color:#475569;
+            font-weight:600;
+        ">
+            Pricing
+        </a>
+
+        <a href="#demoForm" onclick="openDemoForm()" style="
+            text-decoration:none;
+            color:#475569;
+            font-weight:600;
+        ">
+            Request a Demo
+        </a>
+
+        <a href="#" style="
+            text-decoration:none;
+            color:#2563eb;
+            font-weight:600;
+        ">
+            Free Trial
+        </a>
+
+    </nav>
+
+</header>
+
+
+<section class="hero">
+
+    <div style="
+        display:inline-block;
+        padding:8px 16px;
+        background:#eff6ff;
+        color:#2563eb;
+        border-radius:30px;
+        font-size:14px;
+        font-weight:600;
+        margin-bottom:20px;
+    ">
+        🏪 Smart Retail Management
+    </div>
+
+    <h1>
+        Manage Your Retail Business
+        <span>Smarter & Faster</span>
+    </h1>
+
+    <p>
+        Powerful retail management software to handle billing,
+        sales, inventory, purchases, suppliers and your complete
+        day-to-day business operations from one simple platform.
+    </p>
+
+    <div style="
+        margin-top:32px;
+        display:flex;
+        justify-content:center;
+        gap:15px;
+        flex-wrap:wrap;
+    ">
+
+        <button onclick="openSignup()" style="
+            padding:14px 28px;
+            border:none;
+            border-radius:8px;
+            background:#2563eb;
+            color:white;
+            font-size:16px;
+            font-weight:600;
+            cursor:pointer;
+        ">
+            🚀 Start Free Trial
+        </button>
+
+       <button onclick="openDemoForm()" style="
+    padding:14px 28px;
+    border:1px solid #2563eb;
+    border-radius:8px;
+    background:white;
+    color:#2563eb;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+">
+    🎯 Request a Demo
+</button>
+
+    </div>
+
+    <div style="
+        margin-top:25px;
+        color:#64748b;
+        font-size:14px;
+    ">
+        ✓ Easy to use &nbsp;&nbsp; ✓ Cloud based &nbsp;&nbsp; ✓ Secure &nbsp;&nbsp; ✓ Suitable for all retail shops
+    </div>
+
+</section>
+
+<section id="features" style="
+    padding:70px 6%;
+    background:#f8fafc;
+">
+
+    <div style="
+        text-align:center;
+        max-width:750px;
+        margin:0 auto 45px;
+    ">
+
+        <div style="
+            display:inline-block;
+            padding:7px 15px;
+            background:#eff6ff;
+            color:#2563eb;
+            border-radius:20px;
+            font-size:13px;
+            font-weight:600;
+            margin-bottom:15px;
+        ">
+            POWERFUL FEATURES
+        </div>
+
+        <h2 style="
+            font-size:38px;
+            margin-bottom:15px;
+        ">
+            Everything You Need to
+            <span style="color:#2563eb;">
+                Manage Your Retail Business
+            </span>
+        </h2>
+
+        <p style="
+            color:#64748b;
+            font-size:16px;
+            line-height:1.7;
+        ">
+            Manage your complete retail business from one
+            simple and powerful platform.
+        </p>
+
+    </div>
+
+
+    <div style="
+        max-width:1100px;
+        margin:auto;
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:20px;
+    ">
+
+        <div class="card" onclick="showFeature('billing')">
+
+    <div class="card-icon">🧾</div>
+
+    <h2>Billing</h2>
+
+    <p>
+        Create bills quickly and manage your
+        daily sales transactions easily.
+    </p>
+
+    <div style="
+        margin-top:15px;
+        color:#2563eb;
+        font-weight:600;
+    ">
+        Explore Billing →
+    </div>
+
+</div>
+
+
+       <div class="card" onclick="showFeature('inventory')">
+
+    <div class="card-icon">📦</div>
+
+    <h2>Inventory</h2>
+
+    <p>
+        Track stock, product quantity and
+        inventory movements in real time.
+    </p>
+
+    <div style="
+        margin-top:15px;
+        color:#2563eb;
+        font-weight:600;
+    ">
+        Explore Inventory →
+    </div>
+
+</div>
+
+
+       <div class="card" onclick="showFeature('sales')">
+
+    <div class="card-icon">🛒</div>
+
+    <h2>Sales Management</h2>
+
+    <p>
+        Manage sales transactions and
+        keep your business organized.
+    </p>
+
+    <div style="
+        margin-top:15px;
+        color:#2563eb;
+        font-weight:600;
+    ">
+        Explore Sales →
+    </div>
+
+</div>
+
+<div class="card" onclick="showFeature('purchase')"> 
+    <div class="card-icon">🚚</div> 
+    <h2>Purchase</h2> 
+    <p> 
+        Manage purchases and maintain 
+        complete purchase records. 
+    </p>
+
+    <div style="margin-top:15px;color:#2563eb;font-weight:600;">
+        Explore Purchase →
+    </div>
+
+</div>
+
+
+        <div class="card" onclick="showFeature('supplier')">
+    <div class="card-icon">👨‍💼</div>
+    <h2>Supplier Management</h2>
+    <p>
+        Keep supplier information and
+        purchase details organized.
+    </p>
+</div>
+
+
+        <div class="card">
+            <div class="card-icon">📊</div>
+            <h2>Reports</h2>
+            <p>
+                Get useful business reports to
+                understand your daily operations.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- BILLING DETAILS -->
+
+<section id="billingDetails" style="
+    display:none;
+    padding:70px 6%;
+    background:white;
+">
+
+    <div style="
+        max-width:1000px;
+        margin:auto;
+        text-align:center;
+    ">
+
+        <div style="
+            display:inline-block;
+            padding:7px 15px;
+            background:#eff6ff;
+            color:#2563eb;
+            border-radius:20px;
+            font-size:13px;
+            font-weight:600;
+            margin-bottom:15px;
+        ">
+            BILLING MANAGEMENT
+        </div>
+
+        <h2 style="
+            font-size:38px;
+            margin-bottom:15px;
+        ">
+            Powerful Billing for Your
+            <span style="color:#2563eb;">
+                Retail Business
+            </span>
+        </h2>
+
+        <p style="
+            max-width:700px;
+            margin:0 auto 40px;
+            color:#64748b;
+            line-height:1.7;
+        ">
+            Create fast and accurate bills, manage customers,
+            scan products and handle daily sales with ease.
+        </p>
+
+
+        <div style="
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:20px;
+            text-align:left;
+        ">
+
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h2>Fast Billing</h2>
+                <p>
+                    Create customer bills quickly and
+                    reduce billing time.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔍</div>
+                <h2>Barcode Scanning</h2>
+                <p>
+                    Scan product barcodes and automatically
+                    add products to the bill.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">👤</div>
+                <h2>Customer Management</h2>
+                <p>
+                    Save customer details and maintain
+                    their purchase records.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🖨️</div>
+                <h2>Invoice Printing</h2>
+                <p>
+                    Generate professional invoices and
+                    print bills easily.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💳</div>
+                <h2>Payment Modes</h2>
+                <p>
+                    Manage cash, UPI, card and other
+                    payment methods.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📱</div>
+                <h2>Easy to Use</h2>
+                <p>
+                    Simple and mobile-friendly billing
+                    interface for daily shop operations.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- INVENTORY DETAILS -->
+
+<section id="inventoryDetails" style="
+    display:none;
+    padding:70px 6%;
+    background:white;
+">
+
+    <div style="
+        max-width:1000px;
+        margin:auto;
+        text-align:center;
+    ">
+
+        <div style="
+            display:inline-block;
+            padding:7px 15px;
+            background:#eff6ff;
+            color:#2563eb;
+            border-radius:20px;
+            font-size:13px;
+            font-weight:600;
+            margin-bottom:15px;
+        ">
+            INVENTORY MANAGEMENT
+        </div>
+
+        <h2 style="
+            font-size:38px;
+            margin-bottom:15px;
+        ">
+            Complete Inventory Management
+            <span style="color:#2563eb;">
+                Made Simple
+            </span>
+        </h2>
+
+        <p style="
+            max-width:700px;
+            margin:0 auto 40px;
+            color:#64748b;
+            line-height:1.7;
+        ">
+            Track products, stock movements and inventory levels
+            from one simple and powerful system.
+        </p>
+
+        <div style="
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:20px;
+            text-align:left;
+        ">
+
+            <div class="card">
+                <div class="card-icon">📦</div>
+                <h2>Stock Management</h2>
+                <p>
+                    Manage product quantities and keep your
+                    stock records organized.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔍</div>
+                <h2>Product Search</h2>
+                <p>
+                    Quickly find products using product name,
+                    code or barcode.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h2>Stock Tracking</h2>
+                <p>
+                    Monitor stock levels and track inventory
+                    movements easily.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⚠️</div>
+                <h2>Low Stock Alert</h2>
+                <p>
+                    Identify products running low so you can
+                    reorder them on time.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔄</div>
+                <h2>Stock In / Stock Out</h2>
+                <p>
+                    Record incoming and outgoing stock and
+                    maintain accurate inventory.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📋</div>
+                <h2>Product Management</h2>
+                <p>
+                    Maintain product information, pricing,
+                    quantity and other details.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SALES DETAILS -->
+
+<section id="salesDetails" style="
+    display:none;
+    padding:70px 6%;
+    background:#f8fafc;
+">
+
+    <div style="
+        max-width:1000px;
+        margin:auto;
+        text-align:center;
+    ">
+
+        <div style="
+            display:inline-block;
+            padding:7px 15px;
+            background:#eff6ff;
+            color:#2563eb;
+            border-radius:20px;
+            font-size:13px;
+            font-weight:600;
+            margin-bottom:15px;
+        ">
+            SALES MANAGEMENT
+        </div>
+
+        <h2 style="
+            font-size:38px;
+            margin-bottom:15px;
+        ">
+            Manage Your Sales
+            <span style="color:#2563eb;">
+                Easily
+            </span>
+        </h2>
+
+        <p style="
+            max-width:700px;
+            margin:0 auto 40px;
+            color:#64748b;
+            line-height:1.7;
+        ">
+            Manage daily sales, customer transactions,
+            payments and sales history from one simple platform.
+        </p>
+
+        <div style="
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:20px;
+            text-align:left;
+        ">
+
+            <div class="card">
+                <div class="card-icon">🛒</div>
+                <h2>Sales Entry</h2>
+                <p>
+                    Record daily sales transactions quickly
+                    and accurately.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📋</div>
+                <h2>Sales History</h2>
+                <p>
+                    View and manage previous sales
+                    transactions whenever you need.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">👤</div>
+                <h2>Customer-wise Sales</h2>
+                <p>
+                    Track customer purchases and
+                    transaction history.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💰</div>
+                <h2>Payment Tracking</h2>
+                <p>
+                    Track received payments and
+                    pending customer payments.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔄</div>
+                <h2>Sales Return</h2>
+                <p>
+                    Manage returned products and
+                    refund transactions easily.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h2>Sales Summary</h2>
+                <p>
+                    Get a clear overview of your
+                    daily and monthly sales.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SUPPLIER MANAGEMENT DETAILS -->
+<section id="supplierDetails" style="display:none; padding:80px 8%; background:#f8fafc;">
+
+    <div style="text-align:center; margin-bottom:50px;">
+        <h2 style="font-size:38px; color:#0f172a; margin-bottom:15px;">
+            Complete Supplier Management
+        </h2>
+
+        <p style="font-size:18px; color:#64748b; max-width:700px; margin:auto;">
+            Manage suppliers, purchases, payments and outstanding dues
+            from one simple platform.
+        </p>
+    </div>
+
+    <div style="
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    text-align:left;
+">
+
+        <div class="card">
+            <div class="card-icon">👨‍💼</div>
+            <h2>Supplier Profile</h2>
+            <p>
+                Store supplier name, mobile number, address,
+                GST details and other important information.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">📦</div>
+            <h2>Supplier-wise Purchase</h2>
+            <p>
+                Easily check how much stock has been purchased
+                from each supplier.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">💰</div>
+            <h2>Supplier Payment</h2>
+            <p>
+                Track supplier payments, pending amounts
+                and outstanding balances.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">📋</div>
+            <h2>Purchase History</h2>
+            <p>
+                View complete purchase history supplier-wise
+                for easy record keeping.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🔄</div>
+            <h2>Supplier Return</h2>
+            <p>
+                Manage returned products and keep supplier
+                return records organized.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">📊</div>
+            <h2>Supplier Summary</h2>
+            <p>
+                Get a quick overview of purchases, payments
+                and outstanding supplier dues.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="purchaseDetails" style="display:none; padding:80px 8%; background:#ffffff;">
+
+    <div style="text-align:center; margin-bottom:50px;">
+        <h2 style="font-size:38px; color:#111827;">
+            Complete Purchase Management
+        </h2>
+
+        <p style="font-size:18px; color:#6b7280;">
+            Manage purchases, suppliers and incoming stock easily.
+        </p>
+    </div>
+
+    <div style="
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:25px;
+    ">
+
+        <div class="card">
+            <div class="card-icon">🛍️</div>
+            <h2>Purchase Entry</h2>
+            <p>Record new purchases quickly and easily.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">📋</div>
+            <h2>Purchase History</h2>
+            <p>View and track all previous purchases.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🚚</div>
+            <h2>Supplier Purchases</h2>
+            <p>Manage purchases supplier-wise.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">📦</div>
+            <h2>Stock Update</h2>
+            <p>Automatically update stock after purchase.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">💰</div>
+            <h2>Purchase Payment</h2>
+            <p>Track pending and completed supplier payments.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">📊</div>
+            <h2>Purchase Reports</h2>
+            <p>Get clear reports of your purchase activities.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="pricing" style="
+    padding:80px 6%;
+    background:white;
+">
+
+    <div style="
+        text-align:center;
+        max-width:700px;
+        margin:0 auto 45px;
+    ">
+
+        <div style="
+            display:inline-block;
+            padding:7px 15px;
+            background:#eff6ff;
+            color:#2563eb;
+            border-radius:20px;
+            font-size:13px;
+            font-weight:600;
+            margin-bottom:15px;
+        ">
+            SIMPLE PRICING
+        </div>
+
+        <h2 style="
+            font-size:38px;
+            margin-bottom:15px;
+        ">
+            Choose the Right Plan for
+            <span style="color:#2563eb;">
+                Your Business
+            </span>
+        </h2>
+
+        <p style="
+            color:#64748b;
+            font-size:16px;
+            line-height:1.7;
+        ">
+            Start small and upgrade whenever your business grows.
+        </p>
+
+    </div>
+
+
+    <div style="
+        max-width:1000px;
+        margin:auto;
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:25px;
+    ">
+
+
+        <!-- BASIC -->
+
+        <div style="
+            border:1px solid #e2e8f0;
+            border-radius:18px;
+            padding:35px 25px;
+            text-align:center;
+            background:#fff;
+        ">
+
+            <h3 style="font-size:24px;">
+                Basic
+            </h3>
+
+            <p style="
+                color:#64748b;
+                margin:10px 0 20px;
+            ">
+                For small shops
+            </p>
+
+            <div style="
+                font-size:36px;
+                font-weight:700;
+                margin-bottom:20px;
+            ">
+                ₹499
+                <span style="
+                    font-size:14px;
+                    color:#64748b;
+                    font-weight:400;
+                ">
+                    /month
+                </span>
+            </div>
+
+            <p>✓ Billing</p>
+            <p>✓ Sales Management</p>
+            <p>✓ Basic Inventory</p>
+
+        </div>
+
+
+        <!-- PROFESSIONAL -->
+
+        <div style="
+            border:2px solid #2563eb;
+            border-radius:18px;
+            padding:35px 25px;
+            text-align:center;
+            background:#eff6ff;
+            position:relative;
+        ">
+
+            <div style="
+                position:absolute;
+                top:-14px;
+                left:50%;
+                transform:translateX(-50%);
+                background:#2563eb;
+                color:white;
+                padding:6px 18px;
+                border-radius:20px;
+                font-size:12px;
+                font-weight:600;
+            ">
+                MOST POPULAR
+            </div>
+
+            <h3 style="
+                font-size:24px;
+                margin-top:10px;
+            ">
+                Professional
+            </h3>
+
+            <p style="
+                color:#64748b;
+                margin:10px 0 20px;
+            ">
+                For growing businesses
+            </p>
+
+            <div style="
+                font-size:36px;
+                font-weight:700;
+                margin-bottom:20px;
+            ">
+                ₹999
+                <span style="
+                    font-size:14px;
+                    color:#64748b;
+                    font-weight:400;
+                ">
+                    /month
+                </span>
+            </div>
+
+            <p>✓ Billing</p>
+            <p>✓ Sales Management</p>
+            <p>✓ Inventory</p>
+            <p>✓ Purchase</p>
+            <p>✓ Supplier Management</p>
+            <p>✓ Reports</p>
+
+        </div>
+
+
+        <!-- BUSINESS -->
+
+        <div style="
+            border:1px solid #e2e8f0;
+            border-radius:18px;
+            padding:35px 25px;
+            text-align:center;
+            background:#fff;
+        ">
+
+            <h3 style="font-size:24px;">
+                Business
+            </h3>
+
+            <p style="
+                color:#64748b;
+                margin:10px 0 20px;
+            ">
+                For larger shops
+            </p>
+
+            <div style="
+                font-size:36px;
+                font-weight:700;
+                margin-bottom:20px;
+            ">
+                ₹1,499
+                <span style="
+                    font-size:14px;
+                    color:#64748b;
+                    font-weight:400;
+                ">
+                    /month
+                </span>
+            </div>
+
+            <p>✓ Everything in Professional</p>
+            <p>✓ Advanced Reports</p>
+            <p>✓ Multiple Users</p>
+            <p>✓ Priority Support</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="demoForm" style="
+    padding:80px 6%;
+    background:#f8fafc;
+    display:none;
+">
+
+    <div style="
+        max-width:650px;
+        margin:auto;
+        background:white;
+        padding:40px;
+        border-radius:18px;
+        border:1px solid #e2e8f0;
+        box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    ">
+
+        <div style="text-align:center; margin-bottom:30px;">
+
+            <div style="
+                display:inline-block;
+                padding:7px 15px;
+                background:#eff6ff;
+                color:#2563eb;
+                border-radius:20px;
+                font-size:13px;
+                font-weight:600;
+                margin-bottom:15px;
+            ">
+                REQUEST A DEMO
+            </div>
+
+            <h2 style="font-size:34px; margin-bottom:12px;">
+                See YourGarment in Action
+            </h2>
+
+            <p style="
+                color:#64748b;
+                line-height:1.6;
+            ">
+                Fill in your details and we will contact you
+                for a personalized demo.
+            </p>
+
+        </div>
+
+
+        <input id="demoName"
+            type="text"
+            placeholder="Your Name"
+            style="
+                width:100%;
+                padding:14px;
+                margin-bottom:15px;
+                border:1px solid #cbd5e1;
+                border-radius:8px;
+                font-size:15px;
+            ">
+
+
+        <input id="demoShop"
+            type="text"
+            placeholder="Shop / Business Name"
+            style="
+                width:100%;
+                padding:14px;
+                margin-bottom:15px;
+                border:1px solid #cbd5e1;
+                border-radius:8px;
+                font-size:15px;
+            ">
+
+
+        <input id="demoMobile"
+            type="tel"
+            placeholder="Mobile Number"
+            style="
+                width:100%;
+                padding:14px;
+                margin-bottom:15px;
+                border:1px solid #cbd5e1;
+                border-radius:8px;
+                font-size:15px;
+            ">
+
+
+        <input id="demoCity"
+            type="text"
+            placeholder="City"
+            style="
+                width:100%;
+                padding:14px;
+                margin-bottom:15px;
+                border:1px solid #cbd5e1;
+                border-radius:8px;
+                font-size:15px;
+            ">
+
+
+        <textarea id="demoMessage"
+            placeholder="Message (Optional)"
+            rows="4"
+            style="
+                width:100%;
+                padding:14px;
+                margin-bottom:20px;
+                border:1px solid #cbd5e1;
+                border-radius:8px;
+                font-size:15px;
+                resize:vertical;
+            "></textarea>
+
+
+        <button onclick="sendDemoRequest()"
+            style="
+                width:100%;
+                padding:15px;
+                border:none;
+                border-radius:8px;
+                background:#2563eb;
+                color:white;
+                font-size:16px;
+                font-weight:600;
+                cursor:pointer;
+            ">
+            🚀 Send Demo Request
+        </button>
+
+    </div>
+
+</section>
+
+<section id="signupForm" style="
+    padding:80px 6%;
+    background:#f8fafc;
+    display:none;
+">
+
+    <div style="
+        max-width:650px;
+        margin:auto;
+        background:white;
+        padding:40px;
+        border-radius:18px;
+        border:1px solid #e2e8f0;
+        box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    ">
+
+        <div style="text-align:center; margin-bottom:30px;">
+
+            <div style="
+                display:inline-block;
+                padding:7px 15px;
+                background:#eff6ff;
+                color:#2563eb;
+                border-radius:20px;
+                font-size:13px;
+                font-weight:600;
+                margin-bottom:15px;
+            ">
+                FREE TRIAL
+            </div>
+
+            <h2 style="font-size:34px; margin-bottom:12px;">
+                Start Your Free Trial
+            </h2>
+
+            <p style="
+                color:#64748b;
+                line-height:1.6;
+            ">
+                Create your account and start managing your business smarter.
+            </p>
+
+        </div>
+
+
+        <input id="signupShop"
+            type="text"
+            placeholder="Shop / Business Name *"
+            required
+            style="
+                width:100%;
+                padding:14px;
+                margin-bottom:15px;
+                border:1px solid #cbd5e1;
+                border-radius:8px;
+                font-size:15px;
+                box-sizing:border-box;
+            ">
+
+
+        <input id="signupOwner"
+            type="text"
+            placeholder="Owner Name *"
+            required
+            style="
+                width:100%;
+                padding:14px;
+                margin-bottom:15px;
+                border:1px solid #cbd5e1;
+                border-radius:8px;
+                font-size:15px;
+                box-sizing:border-box;
+            ">
+
+
+        <input id="signupPhone"
+            type="tel"
+            placeholder="Mobile Number *"
+            required
+            maxlength="10"
+            style="
+                width:100%;
+                padding:14px;
+                margin-bottom:15px;
+                border:1px solid #cbd5e1;
+                border-radius:8px;
+                font-size:15px;
+                box-sizing:border-box;
+            ">
+
+
+        <input id="signupEmail"
+            type="email"
+            placeholder="Email Address *"
+            required
+            style="
+                width:100%;
+                padding:14px;
+                margin-bottom:15px;
+                border:1px solid #cbd5e1;
+                border-radius:8px;
+                font-size:15px;
+                box-sizing:border-box;
+            ">
+
+
+        <input id="signupPassword"
+            type="password"
+            placeholder="Password *"
+            required
+            style="
+                width:100%;
+                padding:14px;
+                margin-bottom:15px;
+                border:1px solid #cbd5e1;
+                border-radius:8px;
+                font-size:15px;
+                box-sizing:border-box;
+            ">
+
+
+        <input id="signupConfirmPassword"
+            type="password"
+            placeholder="Confirm Password *"
+            required
+            style="
+                width:100%;
+                padding:14px;
+                margin-bottom:20px;
+                border:1px solid #cbd5e1;
+                border-radius:8px;
+                font-size:15px;
+                box-sizing:border-box;
+            ">
+
+
+        <button onclick="createFreeTrial()"
+            style="
+                width:100%;
+                padding:15px;
+                border:none;
+                border-radius:8px;
+                background:#2563eb;
+                color:white;
+                font-size:16px;
+                font-weight:600;
+                cursor:pointer;
+            ">
+            🚀 Create Free Trial Account
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+<footer>
+
+    © 2026 YourGarment. All Rights Reserved.
+
+</footer>
+
+<script>
+
+function sendDemoRequest() {
+
+    const name = document.getElementById("demoName").value.trim();
+    const shop = document.getElementById("demoShop").value.trim();
+    const mobile = document.getElementById("demoMobile").value.trim();
+    const city = document.getElementById("demoCity").value.trim();
+    const message = document.getElementById("demoMessage").value.trim();
+
+    if (!name || !shop || !mobile || !city) {
+        alert("Please fill Name, Shop Name, Mobile Number and City.");
+        return;
+    }
+
+    const whatsappMessage =
+`Hello YourGarment,
+
+I would like to request a demo.
+
+Name: ${name}
+Shop / Business: ${shop}
+Mobile: ${mobile}
+City: ${city}
+Message: ${message || "No additional message"}`;
+
+    const emailSubject =
+        "YourGarment - Demo Request";
+
+    const emailBody =
+`Hello YourGarment,
+
+I would like to request a demo.
+
+Name: ${name}
+Shop / Business: ${shop}
+Mobile: ${mobile}
+City: ${city}
+Message: ${message || "No additional message"}`;
+
+    const whatsappURL =
+        "https://wa.me/919507061045?text=" +
+        encodeURIComponent(whatsappMessage);
+
+    const emailURL =
+        "mailto:er.rajkapoorroy@gmail.com?subject=" +
+        encodeURIComponent(emailSubject) +
+        "&body=" +
+        encodeURIComponent(emailBody);
+
+    window.open(whatsappURL, "_blank");
+
+setTimeout(function() {
+    window.open(emailURL, "_blank");
+}, 1000);
+
+}
+
+function showFeature(feature) {
+
+    if (feature === "billing") {
+
+        const section = document.getElementById("billingDetails");
+
+        section.style.display = "block";
+
+        section.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+    if (feature === "inventory") {
+
+        const section = document.getElementById("inventoryDetails");
+
+        section.style.display = "block";
+
+        section.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+    if (feature === "sales") {
+
+        const section = document.getElementById("salesDetails");
+
+        section.style.display = "block";
+
+        section.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+    if (feature === "purchase") {
+
+        const section = document.getElementById("purchaseDetails");
+
+        section.style.display = "block";
+
+        section.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+        if (feature === "supplier") {
+
+        const section = document.getElementById("supplierDetails");
+
+        section.style.display = "block";
+
+        section.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+}
+
+
+
+
+function openDemoForm() {
+
+    const form = document.getElementById("demoForm");
+
+    form.style.display = "block";
+
+    form.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+function openSignup(){
+
+    const form = document.getElementById("signupForm");
+
+    form.style.display = "block";
+
+    form.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+async function createFreeTrial(){
+
+    const shop = document.getElementById("signupShop").value.trim();
+    const owner = document.getElementById("signupOwner").value.trim();
+    const phone = document.getElementById("signupPhone").value.trim();
+    const email = document.getElementById("signupEmail").value.trim();
+    const password = document.getElementById("signupPassword").value;
+    const confirmPassword =
+        document.getElementById("signupConfirmPassword").value;
+
+    if(!shop || !owner || !phone || !email || !password || !confirmPassword){
+        alert("Please fill all required fields.");
+        return;
+    }
+
+    if(!/^[0-9]{10}$/.test(phone)){
+        alert("Please enter a valid 10-digit mobile number.");
+        return;
+    }
+
+    if(password !== confirmPassword){
+        alert("Password and Confirm Password do not match.");
+        return;
+    }
+
+    if(password.length < 6){
+        alert("Password must be at least 6 characters.");
+        return;
+    }
+
+    const button = document.querySelector('#signupForm button');
+
+    if(button){
+        button.disabled = true;
+        button.innerText = "Creating Account...";
+    }
+
+    try{
+
+        const response = await fetch(
+            "https://krwcgxzmkkzvbbhbfbnb.supabase.co/functions/v1/create-free-trial",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    shopName: shop,
+                    ownerName: owner,
+                    phone: phone,
+                    email: email,
+                    password: password
+                })
+            }
+        );
+
+        const result = await response.json();
+
+        if(!response.ok || !result.success){
+            throw new Error(
+                result.message ||
+                "Unable to create Free Trial account."
+            );
+        }
+
+        alert(
+            "🎉 Free Trial Account Created Successfully!\n\n" +
+            "Shop Code: " + result.shop.shopCode + "\n" +
+            "Email: " + result.shop.email + "\n" +
+            "Trial: 365 Days"
+        );
+
+        document.getElementById("signupShop").value = "";
+        document.getElementById("signupOwner").value = "";
+        document.getElementById("signupPhone").value = "";
+        document.getElementById("signupEmail").value = "";
+        document.getElementById("signupPassword").value = "";
+        document.getElementById("signupConfirmPassword").value = "";
+
+    }
+    catch(error){
+
+        console.error("Free Trial Error:", error);
+
+        alert(
+            "❌ Free Trial could not be created.\n\n" +
+            error.message
+        );
+
+    }
+    finally{
+
+        if(button){
+            button.disabled = false;
+            button.innerText = "Start Free Trial";
+        }
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
