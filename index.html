@@ -2364,60 +2364,82 @@ async function sendPasswordReset(){
 
 }
 
-async function updateNewPassword(){
+async function updateAdminKey(){
 
-    const newPassword =
-        document.getElementById("newPassword").value;
+    const newKey =
+        document.getElementById("newAdminKey").value.trim();
 
-    const confirmPassword =
-        document.getElementById("confirmNewPassword").value;
+    const confirmKey =
+        document.getElementById("confirmAdminKey").value.trim();
 
     const message =
-        document.getElementById("resetPasswordMessage");
+        document.getElementById("adminKeyResetMessage");
 
-    if(!newPassword || !confirmPassword){
+
+    /* ==============================
+       VALIDATION
+    ============================== */
+
+    if(!newKey || !confirmKey){
 
         message.innerHTML =
             `<span style="color:#dc2626;">
-                Please enter both passwords.
+                Please enter both Admin Keys.
             </span>`;
 
         return;
     }
 
-    if(newPassword.length < 6){
+
+    if(!/^\d{4}$/.test(newKey)){
 
         message.innerHTML =
             `<span style="color:#dc2626;">
-                Password must be at least 6 characters.
+                Admin Key must be exactly 4 digits.
             </span>`;
 
         return;
     }
 
-    if(newPassword !== confirmPassword){
+
+    if(newKey !== confirmKey){
 
         message.innerHTML =
             `<span style="color:#dc2626;">
-                Passwords do not match.
+                Admin Keys do not match.
             </span>`;
 
         return;
     }
+
 
     message.innerHTML =
         `<span style="color:#2563eb;">
-            Updating password...
+            Updating Admin Key...
         </span>`;
+
+
+    /* ==============================
+       SAVE NEW ADMIN KEY
+    ============================== */
 
     try{
 
-        const { error } =
-            await supabaseClient.auth.updateUser({
-                password: newPassword
-            });
+        const { data, error } =
+            await supabaseClient.rpc(
+                "reset_admin_key",
+                {
+                    p_new_key: newKey
+                }
+            );
+
 
         if(error){
+
+            console.error(
+                "Admin Key Reset Error:",
+                error
+            );
 
             message.innerHTML =
                 `<span style="color:#dc2626;">
@@ -2427,19 +2449,55 @@ async function updateNewPassword(){
             return;
         }
 
+
+        if(data !== true){
+
+            message.innerHTML =
+                `<span style="color:#dc2626;">
+                    Admin Key could not be updated.
+                </span>`;
+
+            return;
+        }
+
+
         message.innerHTML =
             `<span style="color:#16a34a;font-weight:600;">
-                ✅ Password updated successfully.
+                ✅ Admin Key updated successfully.
             </span>`;
+
+
+        document.getElementById("newAdminKey").value = "";
+        document.getElementById("confirmAdminKey").value = "";
+
+
+        setTimeout(async () => {
+
+            document.getElementById(
+                "resetPasswordModal"
+            ).style.display = "none";
+
+            await supabaseClient.auth.signOut();
+
+            window.location.href =
+                window.location.origin +
+                window.location.pathname;
+
+        }, 2000);
+
 
     }
     catch(error){
+
+        console.error(
+            "Admin Key Reset Error:",
+            error
+        );
 
         message.innerHTML =
             `<span style="color:#dc2626;">
                 Something went wrong.
             </span>`;
-
     }
 
 }
